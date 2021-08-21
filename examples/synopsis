@@ -1,0 +1,27 @@
+use Cro::HTTP::Router;
+use Cro::HTTP::Server;
+use JSON::Class;
+use Cro::HTTP::BodySerializerJSONClass;
+
+class Foo does JSON::Class {
+   has DateTime $.date is marshalled-by('Str') = DateTime.now;
+}
+
+my $app = route {
+    get -> {
+        content 'application/json', Foo.new;
+    }
+};
+
+my Cro::Service $service = Cro::HTTP::Server.new(
+   :host<localhost>, 
+   :port<7798>, 
+   application => $app, 
+   add-body-serializers => [ Cro::HTTP::BodySerializerJSONClass]
+);
+
+$service.start;
+
+react whenever signal(SIGINT) { $service.stop; exit; }
+
+
