@@ -1,0 +1,72 @@
+{
+  "type": "layout",
+  "children": [
+    {
+      "type": "file",
+      "name": "META6.json"
+    },
+    {
+      "type": "file",
+      "name": "Changes"
+    },
+    {
+      "purpose": null,
+      "name": "examples",
+      "type": "directory",
+      "children": [
+        {
+          "name": "synopsis",
+          "type": "file"
+        }
+      ]
+    },
+    {
+      "name": "LICENCE",
+      "type": "file"
+    },
+    {
+      "type": "directory",
+      "name": "t",
+      "purpose": null,
+      "children": [
+        {
+          "name": "020-serialize.t",
+          "type": "file"
+        },
+        {
+          "type": "file",
+          "name": "001-meta.t"
+        }
+      ]
+    },
+    {
+      "children": [
+        {
+          "type": "directory",
+          "name": "Cro",
+          "purpose": null,
+          "children": [
+            {
+              "children": [
+                {
+                  "name": "BodySerializerJSONClass.rakumod",
+                  "type": "file"
+                }
+              ],
+              "purpose": null,
+              "name": "HTTP",
+              "type": "directory"
+            }
+          ]
+        }
+      ],
+      "purpose": null,
+      "name": "lib",
+      "type": "directory"
+    },
+    {
+      "name": "README.md",
+      "type": "file"
+    }
+  ]
+}
