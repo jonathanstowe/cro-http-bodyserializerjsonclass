@@ -1,32 +1,34 @@
 {
-  "name": "Cro::HTTP::BodySerializerJSONClass",
-  "version": "0.0.1",
-  "auth": "github:jonathanstowe",
-  "description": "A Cro::HTTP::BodySerializer that knows about JSON::Class objects",
-  "resources": [
-  ],
-  "test-depends": [
-  ],
-  "support": {
-    "source": "git://github.com/jonathanstowe/cro-http-bodyserializerjsonclass.git",
-    "email": "jns+gh@gellyfish.co.uk"
-  },
-  "meta-version": "0",
-  "source-url": "git://github.com/jonathanstowe/cro-http-bodyserializerjsonclass.git",
-  "license": "Artistic-2.0",
+  "raku": "6.d",
   "authors": [
     "Jonathan Stowe <jns+gh@gellyfish.co.uk>"
   ],
-  "tags": [
-     "cro", "json", "serializer"
-  ],
-  "raku": "6.d",
   "provides": {
-     "Cro::HTTP::BodySerializerJSONClass" : "lib/Cro/HTTP/BodySerializerJSONClass.rakumod"
+    "Cro::HTTP::BodySerializerJSONClass": "lib/Cro/HTTP/BodySerializerJSONClass.rakumod"
   },
+  "tags": [
+    "cro",
+    "json",
+    "serializer"
+  ],
+  "resources": [
+  ],
+  "auth": "zef:jonathanstowe",
+  "description": "A Cro::HTTP::BodySerializer that knows about JSON::Class objects",
   "build-depends": [
   ],
+  "license": "Artistic-2.0",
+  "name": "Cro::HTTP::BodySerializerJSONClass",
   "depends": [
-     "Cro::HTTP"
-  ]
+    "Cro::HTTP"
+  ],
+  "version": "0.0.2",
+  "source-url": "git://github.com/jonathanstowe/cro-http-bodyserializerjsonclass.git",
+  "support": {
+    "email": "jns+gh@gellyfish.co.uk",
+    "source": "git://github.com/jonathanstowe/cro-http-bodyserializerjsonclass.git"
+  },
+  "test-depends": [
+  ],
+  "meta-version": "0"
 }
