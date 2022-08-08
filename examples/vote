@@ -1,0 +1,65 @@
+use Cro::HTTP::Router;
+use Cro::HTTP::Server;
+use JSON::Class;
+use Cro::HTTP::BodySerializerJSONClass;
+
+class Votes does JSON::Class {
+    has Int $.up 	= 0;
+    has Int $.down	= 0;
+    has Int $.total  = 0;
+    has DateTime $.last-voted is marshalled-by('Str') = DateTime.now;
+
+    has $!lock = Lock.new;
+
+    proto method vote(|) { * }
+
+    multi method vote( :$up! --> Nil ) {
+        $!lock.protect({
+            $!up++;
+            $!total = $!up - $!down;
+            $!last-voted = DateTime.now;
+        });
+    }
+
+    multi method vote( :$down! --> Nil ) {
+        $!lock.protect({
+            $!down++;
+            $!total = $!up - $!down;
+            $!last-voted = DateTime.now;
+        });
+    }
+
+
+}
+
+class Routes {
+
+    has Votes $.votes handles <vote> = Votes.new;
+
+    method routes() {
+        route {
+            get -> 'votes' {
+                content 'application/json', self.votes;
+            }
+            post -> 'vote', 'up' {
+                self.vote(:up);
+            }
+            post -> 'vote', 'down' {
+                self.vote(:down);
+            }
+        }
+    }
+}
+
+my Cro::Service $service = Cro::HTTP::Server.new(
+   :host<localhost>,
+   :port<7798>,
+   application => Routes.new.routes,
+   add-body-serializers => [ Cro::HTTP::BodySerializerJSONClass]
+);
+
+$service.start;
+
+react whenever signal(SIGINT) { $service.stop; exit; }
+
+# vim: ft=raku

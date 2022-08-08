@@ -15,20 +15,16 @@
   ],
   "auth": "zef:jonathanstowe",
   "description": "A Cro::HTTP::BodySerializer that knows about JSON::Class objects",
-  "build-depends": [
-  ],
   "license": "Artistic-2.0",
   "name": "Cro::HTTP::BodySerializerJSONClass",
   "depends": [
     "Cro::HTTP"
   ],
-  "version": "0.0.2",
+  "version": "0.0.3",
   "source-url": "git://github.com/jonathanstowe/cro-http-bodyserializerjsonclass.git",
   "support": {
     "email": "jns+gh@gellyfish.co.uk",
     "source": "git://github.com/jonathanstowe/cro-http-bodyserializerjsonclass.git"
   },
-  "test-depends": [
-  ],
-  "meta-version": "0"
+  "meta-version": "1"
 }

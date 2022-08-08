@@ -17,6 +17,10 @@
         {
           "name": "synopsis",
           "type": "file"
+        },
+        {
+          "name": "vote",
+          "type": "file"
         }
       ]
     },
